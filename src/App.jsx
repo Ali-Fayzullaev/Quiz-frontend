@@ -9,7 +9,8 @@ import ErrorPage from "./pages/ErrorPage"
 
 import Home from "./pages/Home"
 import Quiz from "./pages/Quiz"
-import CreateTest from "./components/createTest"
+import CreateTest from "./components/CreateTest"
+
 
 
 

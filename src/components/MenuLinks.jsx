@@ -17,7 +17,7 @@ function MenuLinks() {
         <div className="menu-list">
             {quizes && quizes.map((list) => {
                 return (
-                    <Link to={`/quiz/${list.title}`}   key={list.id} className=" d-flex align-items-center heder-logo menu-item">
+                    <Link to={`/quiz/${list.title}`}   key={list.title} className=" d-flex align-items-center heder-logo menu-item">
                         <figure  style={{backgroundColor: list.color}}>
                             <img src={`https://picsum.photos/50/50?random=${Math.random()}`} className=" rounded-2" alt={list.title}/>
                         </figure>
