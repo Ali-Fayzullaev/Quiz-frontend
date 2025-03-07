@@ -4,7 +4,7 @@ import { useState } from "react";
 import Result from "./Result";
 import toast from "react-hot-toast";
 
-function Test({question:{color, icon, title, questions}}) {
+function Test({question:{color, icon, title, questions, imgUrl}}) {
     const [answeredQuestions, setAnsweredQuestions] = useState(1);
     const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
     const [questionIndex, setQuestionIndex] = useState(0);
@@ -29,7 +29,7 @@ function Test({question:{color, icon, title, questions}}) {
             if (selectedAnswer === correctAnswer) {
                 toast(' Good Job!', { icon: '👏 😉',});
                 setAnswerStatus("correct")
-                setCorrectAnswerCount(correctAnswerCount + 10)
+                setCorrectAnswerCount(correctAnswerCount + 1)
                 setStatusDisabled(true);
                 setShowNextButton(true);
             } else {
@@ -46,11 +46,12 @@ function Test({question:{color, icon, title, questions}}) {
 
     const handleNextQuestions = () => {
         if (questionIndex + 1 === questions.length)  {
-            if (correctAnswerCount >= 50) {
-                toast.success('🔥 You crushed it! The exam never stood a chance! 🎉');
+            const percentage = (correctAnswerCount / questions.length) * 100
+            if (percentage >= 50) {
+                toast.success(`🔥 You crushed it! ${percentage.toFixed(0)}% correct! 🎉`);
             }
-             else if (correctAnswerCount <= 40) {
-                toast.error("Mission failed! But heroes never give up! 🚀 Try again!");
+             else if (percentage <= 49) {
+                toast.error(`😢 Keep practicing! ${percentage.toFixed(0)}% correct.`);
             }
             setQuestionIndex(questions.length);
         } else {
@@ -83,7 +84,7 @@ function Test({question:{color, icon, title, questions}}) {
         <div className="test-content">
             <p className="test-description">Question {answeredQuestions} of {questions.length}</p>
             <h2 className="test-title">
-            {questions[questionIndex]?.question} 
+            {questions[questionIndex]?.question}
             </h2>
             <div className="test-proccess-container">
                 <div className="test-proccess" style={{width: (answeredQuestions / questions.length) * 100 + "%"}} ></div>

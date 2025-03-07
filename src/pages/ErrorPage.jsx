@@ -6,9 +6,9 @@ function ErrorPage() {
 
   if (error.status === 404) {
     return (
-    <div class="image-container">
+    <div className="image-container">
       <img src="../public/assets/404-error.jpg" className="imgErrorNotFound" alt="img-Error-Not-Found" />
-      <div class="text-overlay">
+      <div className="text-overlay">
         <h3>
         **404 - Page Not Found** <br />
         *"Oops! Looks like this page took a wrong turn and got lost in the digital wilderness. 🌵🚀 Try going back or exploring something else!"*
@@ -21,7 +21,7 @@ function ErrorPage() {
   
   return (
      
-      <div class="text-overlay">
+      <div className="text-overlay">
         <h3>
         "Oops! Something went wrong on our end. <br />
          Our team of highly trained hamsters is working hard to fix it!

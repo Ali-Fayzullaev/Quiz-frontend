@@ -33,7 +33,7 @@ function Navbar() {
             { title &&
               <Link to="/" className="header-logo" >
                 <figure>
-                   <img src={`../assets/icon-${title.toLowerCase()}.svg`} alt={`${title}-icon`} />
+                   <img src={`https://picsum.photos/60/60?random=${Math.random()}`} className=" rounded-2" alt={`${title}-icon`} />
                 </figure>
                 <span>{title}</span>
               </Link>

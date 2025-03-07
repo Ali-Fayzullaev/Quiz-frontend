@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage"
 
 import Home from "./pages/Home"
 import Quiz from "./pages/Quiz"
+import CreateTest from "./components/createTest"
 
 
 
@@ -27,6 +28,11 @@ function App() {
         {
           path: "/quiz/:title",
           element: <Quiz />,  
+        },
+        {
+          path: "/createTest",
+          element: <CreateTest/>
+
         }
       ]
 
