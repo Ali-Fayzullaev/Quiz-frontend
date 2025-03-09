@@ -4,7 +4,7 @@ import  useFetch  from "../hooks/useFetch"
 
 function MenuLinks() {
     const  {data:quizes, loading, error} = useFetch("https://67c3dfc689e47db83dd2ac27.mockapi.io/api/quiz/Quiz")
-    
+    console.log(quizes) 
     console.log(quizes, loading, error)
   return (
     <div>
@@ -12,7 +12,7 @@ function MenuLinks() {
             {error && <div className="loaderErr"></div>}
 
         <Link className="btn my-3" style={{width: "100%"}} to="/CreateTest">
-             Create a Test
+             Create a Quiz
         </Link>
         <div className="menu-list">
             {quizes && quizes.map((list) => {
